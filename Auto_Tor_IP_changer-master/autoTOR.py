@@ -49,8 +49,7 @@ def get_local_ip():
 
 def ma_ip():
     url = 'https://www.myexternalip.com/raw'
-    local_ip = get_local_ip()
-    get_ip = requests.get(url, proxies=dict(http=f'http://{local_ip}:9050', https=f'http://{local_ip}:9050'))
+    get_ip = requests.get(url, proxies=dict(http='socks5://0.0.0.0:9050', https='socks5://0.0.0.0:9050'))
     return get_ip.text
 
 def change():
